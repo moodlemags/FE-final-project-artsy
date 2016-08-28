@@ -1,0 +1,35 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Roboto", Helvetica;
+}
+
+.nav-bar {
+  background-color: #73EAAA;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 125px;
+  width: 100%;
+  margin: 10px;
+  overflow: hidden;
+  font-size: 3em;
+}
+
+.buttonnnn {
+  border: none !important;
+  background-color: #EA9087 !important;
+  color: #9E382E !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none;
+  align-self: flex-end;
+  width: 25%;
+}
+
+.buttonnnn:hover {
+  background-color: #9E382E !important;
+  color: #9E382E !important;
+}
