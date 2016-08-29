@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './styling/search.css';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 
 class Search extends Component {
   constructor(props) {
@@ -39,23 +39,16 @@ class Search extends Component {
   }
 
   render() {
-    const return_value = this.state.response
-    let time_id = new Date()
-    console.log(time_id);
-    console.log('return value response', return_value);
+    const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
+      artist: this.state.artist,
+      response: this.state.response
+    }))
     return (
       <div className="App">
         <h2 className="nav-bar">Welcome to Maggie's Artsy API Playground</h2>
         <input type="text" className="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
-        <button onClick={(event) => this.onClick(event)}>Oh button, let me talk to backend</button>
-                <div className="renderArt" key={time_id}>
-                  <p className="rendering"><span className="title">Painting Title:</span> {return_value.art_title} </p>
-                  <p className="rendering"><img src={return_value.art_link} alt="rendered-painting"/></p>
-                  <p className="rendering"><span className="title">Gene Title:</span>  {return_value.art_gene_name}</p>
-                  <p className="rendering">{return_value.art_gene_desc}</p>
-                </div>
-
-
+      <button onClick={(event) => this.onClick(event)}><Link to="/artsy/search">Oh button, let me talk to backend</Link></button>
+      <div>{childrenWithProps}</div>
       </div>
     );
   }

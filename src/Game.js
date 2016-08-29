@@ -42,7 +42,6 @@ class Game extends Component {
         {/* <button value="4f26f327dc7f670001000126" onClick={(event) => this.onClickRenaissance(event)}>High Renaissance</button> */}
         <button>{returned_response.gene_one}</button>
       </div>
-
     );
   }
 
