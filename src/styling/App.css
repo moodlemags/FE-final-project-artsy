@@ -16,20 +16,22 @@
   margin: 10px;
   overflow: hidden;
   font-size: 3em;
+  border: 17px solid #97FFC7;
 }
 
 .buttonnnn {
   border: none !important;
   background-color: #EA9087 !important;
-  color: #9E382E !important;
+  color: #9E382E !EA4B6E;
   padding: 0 !important;
   margin: 0 !important;
   text-decoration: none;
   align-self: flex-end;
   width: 25%;
+  border: 7px solid #EA4B6E !important;
 }
 
 .buttonnnn:hover {
-  background-color: #9E382E !important;
-  color: #9E382E !important;
+  background-color: #EA4B6E !important;
+  color: #EA4B6E !important;
 }

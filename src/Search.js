@@ -45,14 +45,14 @@ class Search extends Component {
     console.log('return value response', return_value);
     return (
       <div className="App">
-        <h2>Welcome to Maggie's Artsy API Playground</h2>
-        <input type="text" id="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
+        <h2 className="nav-bar">Welcome to Maggie's Artsy API Playground</h2>
+        <input type="text" className="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
         <button onClick={(event) => this.onClick(event)}>Oh button, let me talk to backend</button>
                 <div className="renderArt" key={time_id}>
-                  <p>Painting Title: {return_value.art_title} </p>
-                  <p>Painting: <img src={return_value.art_link} alt="rendered-painting"/></p>
-                  <p>Gene Title: {return_value.art_gene_name}</p>
-                  <p>More Genes: {return_value.art_gene_desc}</p>
+                  <p className="rendering"><span className="title">Painting Title:</span> {return_value.art_title} </p>
+                  <p className="rendering"><img src={return_value.art_link} alt="rendered-painting"/></p>
+                  <p className="rendering"><span className="title">Gene Title:</span>  {return_value.art_gene_name}</p>
+                  <p className="rendering">{return_value.art_gene_desc}</p>
                 </div>
 
 

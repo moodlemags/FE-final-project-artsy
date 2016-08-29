@@ -6,7 +6,16 @@
   justify-content: space-around;
 }
 
+.title {
+  font-weight: bolder;
+  font-size: 1.25em;
+}
+
 .renderArt {
   font-family: "Roboto", Helvetica;
-  width: 60%;
+  width: 50%;
+}
+
+.search-artsy {
+  width: 40% !important;
 }

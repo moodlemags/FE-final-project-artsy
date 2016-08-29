@@ -7,13 +7,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="nav-bar">  Title/Name o my Game </div>
+        <div className="nav-bar"> Title/Name o my Game </div>
               <button className='buttonnnn'>
                   <Link to='/artsy' className='search-button waves-effect waves-teal btn-flat'>I want to learn about one painting</Link>
               </button>
               <br />
               <button className='buttonnnn'>
                   <Link to='/game' className='search-button waves-effect waves-teal btn-flat'>I want to play a learning game</Link>
+              </button>
+              <br />
+              <button className='buttonnnn'>
+                  <Link to='/about' className='search-button waves-effect waves-teal btn-flat'>I want to know about Maggie</Link>
               </button>
         </div>
     );
