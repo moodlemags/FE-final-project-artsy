@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './styling/search.css';
+import util from './utils/firebase.js';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -14,21 +14,19 @@ class SearchResults extends Component {
   componentDidMount(event) {
     console.log('props', this.props);
     console.log('state', this.state);
-    // const method = 'post';
-    // const url = 'http://localhost:3000/artsy/search'
-    // const dataObj = { }
-    //
-    // axios({
-    //   method: method,
-    //   url: url,
-    //   data: dataObj
-    // }).then((res) => {
-    //   this.setState({
-    //       response: res.data
-    //   });
-    //   console.log('response data',res.data);
-    //   console.log('state response',this.state.response);
-    // })
+  }
+
+  onClickFavorite(event) {
+    event.preventDefault();
+    const data = {};
+    console.log('data to be stored', this.props.response.artist_page);
+    data[this.props.response.artist_creation] = {
+      artist_name: this.props.response.artist_page
+    }
+    util.addFavorite(data)
+    .then(res => {
+      console.log('result', res);
+    })
   }
 
   render() {
@@ -38,14 +36,14 @@ class SearchResults extends Component {
     console.log('return value response', return_value);
     return (
       <div className="App">
-        <div className="renderArt" key={time_id}>
-          <p className="rendering"><span className="title">Painting Title:</span> {return_value.art_title} </p>
-          <p className="rendering"><img src={return_value.art_link} alt="rendered-painting"/></p>
-          <p className="rendering"><span className="title">Gene Title:</span>  {return_value.art_gene_name}</p>
-          <p className="rendering">{return_value.art_gene_desc}</p>
+        <div className="container-artist">
+            <div>Artist: {return_value.artist_page}</div>
+            <div>Born in: {return_value.artist_year} in {return_value.artist_hometown}</div>
+            <div><img src={return_value.artist_image}/></div>
+            {/* <img src={require('./goldframe.gif')} /> */}
         </div>
-
-      </div>
+        <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
+        </div>
     );
   }
 

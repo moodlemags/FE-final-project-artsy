@@ -46,9 +46,10 @@ class Search extends Component {
     return (
       <div className="App">
         <h2 className="nav-bar">Welcome to Maggie's Artsy API Playground</h2>
-        <input type="text" className="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
-      <button onClick={(event) => this.onClick(event)}><Link to="/artsy/search">Oh button, let me talk to backend</Link></button>
-      <div>{childrenWithProps}</div>
+          <input type="text" className="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
+          <button onClick={(event) => this.onClick(event)}><Link to="/artsy/search">Oh button, let me talk to backend</Link></button>
+          <div>{childrenWithProps}</div>
+
       </div>
     );
   }

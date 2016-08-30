@@ -41,6 +41,7 @@ class Game extends Component {
         <img src={returned_response.painting_id} />
         {/* <button value="4f26f327dc7f670001000126" onClick={(event) => this.onClickRenaissance(event)}>High Renaissance</button> */}
         <button>{returned_response.gene_one}</button>
+        <button>{returned_response.painting_artist}</button>
       </div>
     );
   }

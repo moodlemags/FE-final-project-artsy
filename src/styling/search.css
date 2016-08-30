@@ -1,9 +1,24 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", Helvetica;
+}
+
 .App {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  background: tomato;
+  width: 40vw;
+  height: 60vh;
+  margin: 50px;
 }
 
 .title {
@@ -11,10 +26,6 @@
   font-size: 1.25em;
 }
 
-.renderArt {
-  font-family: "Roboto", Helvetica;
-  width: 50%;
-}
 
 .search-artsy {
   width: 40% !important;
