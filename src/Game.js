@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import util from './utils/firebase.js';
 
 class Game extends Component {
   constructor(props) {
@@ -11,24 +12,29 @@ class Game extends Component {
   }
 
   componentDidMount(event) {
-    // event.preventDefault();
-    // console.log(event.target.value);
-    // const gene_id = event.target.value
-    // this.setState({id: gene_id})
     console.log('backend for game')
+    util.getAll()
+    .then(res => {
+      console.log('saved responses', res);
+      this.setState({
+        saved_works: res
+      })
+    }).then(res => {
     const method ='post';
     const url = 'http://localhost:3000/game'
-    // const dataObj = { id: gene_id}
+    const dataObj = { saved_works: this.state.saved_works}
+    console.log(dataObj);
     axios({
       method: method,
       url: url,
-      // data: dat-aObj
+      data: dataObj
     }).then((res) => {
       this.setState({
         response: res.data
       });
       console.log('response data', res.data);
-      console.log('state set', this.state.response)
+      console.log('state', this.state)
+    })
     })
   }
 
@@ -38,10 +44,10 @@ class Game extends Component {
     return (
       <div className="App">
         <h2 className="nav-bar">This is the game page</h2>
-        <img src={returned_response.painting_id} />
+        <img src={returned_response.painting} />
         {/* <button value="4f26f327dc7f670001000126" onClick={(event) => this.onClickRenaissance(event)}>High Renaissance</button> */}
         <button>{returned_response.gene_one}</button>
-        <button>{returned_response.painting_artist}</button>
+        {/* <button>{returned_response.painting_artist}</button> */}
       </div>
     );
   }
