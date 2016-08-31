@@ -38,6 +38,23 @@ class SearchResults extends Component {
     browserHistory.push(path)
   }
 
+//   onImageLoad() {
+//       const image = document.getElementsByClassName('image-loader');
+//       const imageWidth = image[0].naturalWidth
+//       const imageHeight = image[0].naturalHeight
+//       const imgUrl = '../assets/gold.jpg'
+//       console.log(image[0].naturalWidth);
+//       this.setState({
+//         width: image[0].naturalWidth,
+//         height: imageHeight,
+//         goldStyle: {
+//           backgroundImage: 'url(' + imgUrl + ')',
+//           width: imageWidth + 15,
+//           height: imageHeight + 15
+//         }
+//       })
+// }
+
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
       artist: this.props.artist,
@@ -45,17 +62,17 @@ class SearchResults extends Component {
     }))
     const return_value = this.props.response
 
+
     console.log('return value response', return_value);
+    console.log(this.state);
     return (
       <div className="App">
-        <div className="container-artist">
-            <div>Artist: {return_value.artist_page}</div>
-            <div>Born in: {return_value.artist_year} in {return_value.artist_hometown}</div>
+          <div className="container-artist">
+            <h2 className="gold-text">{return_value.artist_page}</h2>
+            <h4>Born in: {return_value.artist_year} in {return_value.artist_hometown}</h4>
             <div><img src={return_value.artist_image}/></div>
-            {/* <img src={require('./goldframe.gif')} /> */}
             <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
             <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.handleClick(event)}><Link to="/learn/search/:gene">Learn More</Link></button>
-
         </div>
         {childrenWithProps}
         </div>

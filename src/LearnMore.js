@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Tooltip, Button, OverlayTrigger } from 'react-bootstrap';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import './styling/learn.css';
 
 class LearnMore extends Component {
@@ -34,26 +34,32 @@ class LearnMore extends Component {
   }
   render() {
     console.log(this.state.response.one_name);
-    const tooltip = (<Tooltip id="tooltip"><strong>Learn more about this period</strong></Tooltip>);
-
+    const popoverClickOne = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+              <strong>{this.state.response.one_name}</strong> {this.state.response.one_desc}</Popover>);
+    const popoverClickTwo = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+              <strong>{this.state.response.two_name}</strong> {this.state.response.two_desc}</Popover>);
+    const popoverClickThree = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+              <strong>{this.state.response.three_name}</strong> {this.state.response.three_desc}</Popover>);
+    const popoverClickFour = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+              <strong>{this.state.response.four_name}</strong> {this.state.response.four_desc}</Popover>);
     return (
       <div className="App">
         <div className="render-genes">
           <br />
           <br />
-            <OverlayTrigger placement="right" overlay={tooltip}>
+            <OverlayTrigger placement="right" overlay={popoverClickOne}>
               <Button bsStyle="default">{this.state.response.one_name}</Button>
             </OverlayTrigger>
             <br />
-            <OverlayTrigger placement="right" overlay={tooltip}>
+            <OverlayTrigger placement="right" overlay={popoverClickTwo}>
               <Button bsStyle="default">{this.state.response.two_name}</Button>
             </OverlayTrigger>
             <br />
-            <OverlayTrigger placement="right" overlay={tooltip}>
+            <OverlayTrigger placement="right" overlay={popoverClickThree}>
               <Button bsStyle="default">{this.state.response.three_name}</Button>
             </OverlayTrigger>
             <br />
-            <OverlayTrigger placement="right" overlay={tooltip}>
+            <OverlayTrigger placement="right" overlay={popoverClickFour}>
               <Button bsStyle="default">{this.state.response.four_name}</Button>
             </OverlayTrigger>
         </div>

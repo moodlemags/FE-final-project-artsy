@@ -30,6 +30,10 @@ class App extends Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+
+          <div className="main-componenet">
+            <img src={require('./assets/meme.jpg')} className="image" />
+          </div>
         </div>
     );
   }

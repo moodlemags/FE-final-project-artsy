@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import util from './utils/firebase.js';
 import './styling/game.css';
 
@@ -43,40 +44,50 @@ class Game extends Component {
     })
   }
 
-  onClick(event) {
-    event.preventDefault(event);
-    const buttonValue = event.target.value
-    console.log('clicking 2 backend w/', buttonValue);
-    const method = 'post';
-    const url = 'http://localhost:3000/game/:gene'
-    const dataObj = { id: buttonValue }
-
-    axios({
-      method: method,
-      url: url,
-      data: dataObj
-    }).then((res) => {
-      this.setState({
-          gene_data: res.data
-      });
-      console.log('response data',res.data);
-      console.log('state ',this.state);
-    })
-  }
+  // onClick(event) {
+  //   event.preventDefault(event);
+  //   const buttonValue = event.target.value
+  //   console.log('clicking 2 backend w/', buttonValue);
+  //   const method = 'post';
+  //   const url = 'http://localhost:3000/game/:gene'
+  //   const dataObj = { id: buttonValue }
+  //
+  //   axios({
+  //     method: method,
+  //     url: url,
+  //     data: dataObj
+  //   }).then((res) => {
+  //     this.setState({
+  //         gene_data: res.data
+  //     });
+  //     console.log('response data',res.data);
+  //     console.log('state ',this.state);
+  //   })
+  // }
 
   render() {
     const returned_response = this.state.response
-    // const render_painting = this.state.painting
-    // let time_id = new Date()
+
+    const popoverClick = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+              <strong>Hey </strong> Mag</Popover>);
     return (
       <div className="App">
         <h2 className="nav-bar">This is the game page</h2>
         <div className="rendered-items">
         <img src= {this.state.painting} />
         <br />
-        {/* <button value="4f26f327dc7f670001000126" onClick={(event) => this.onClickRenaissance(event)}>High Renaissance</button> */}
-        <button className="gene-btn" value={returned_response.gene_id} onClick={(event) => this.onClick(event)}>{returned_response.gene_one}</button>
-        {/* <button>{returned_response.painting_artist}</button> */}
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.gene_one}</Button>
+        </OverlayTrigger>
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>two</Button>
+        </OverlayTrigger>
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>three</Button>
+        </OverlayTrigger>
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>four</Button>
+        </OverlayTrigger>
         </div>
       </div>
     );

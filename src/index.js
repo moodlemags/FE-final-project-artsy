@@ -12,12 +12,12 @@ import './styling/index.css';
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App} />
-    <Route path ="/learn" component={Search}>
+    <Route path="/learn" component={Search}>
       <Route path="/learn/search" component={SearchResults}>
         <Route path="/learn/search/:gene" component={LearnMore} />
       </Route>
     </Route>
-    <Route path ="/game" component={Game}></Route>
+    <Route path="/game" component={Game}></Route>
     <Route path="/about" component={About}></Route>
   </Router>
   ,document.getElementById('root')

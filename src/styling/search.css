@@ -16,7 +16,27 @@ html, body {
   font-size: 1.25em;
 }
 
-
 .input-bar {
   width: 40% !important;
+}
+
+.rendered-painting {
+  border: yellow 10px solid;
+   /*border: 2px solid rgba(0,150,255,0.91);
+   color: rgba(255,255,255,1);
+   text-align: center;
+   text-overflow: ellipsis;
+   box-shadow: 0 0 12px 4px rgba(247,227,14,0.5) ;*/
+}
+
+
+.gold-text {
+    justify-content: center;
+    color:#c3a343;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(transparent, transparent),
+    /*url('http://static1.squarespace.com/static/551c2c0ce4b0aea90aabf38b/t/56440d33e4b00b392cd6ce2e/1447300411266/gold.jpg?format=1500w') repeat;*/
+    url('http://previews.123rf.com/images/naiaekky/naiaekky1411/naiaekky141100048/33235710-Shiny-blue-leaf-blue-foil-texture-background-Stock-Photo.jpg') repeat;
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
 }
