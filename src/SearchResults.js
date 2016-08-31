@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styling/search.css';
+import { browserHistory, Link } from 'react-router';
 import util from './utils/firebase.js';
 
 class SearchResults extends Component {
@@ -29,10 +30,21 @@ class SearchResults extends Component {
     })
   }
 
+  handleClick(event){
+    event.preventDefault(event);
+    const id = this.props.response.artist_id
+    const path = `/learn/search/${id}`;
+    console.log(path);
+    browserHistory.push(path)
+  }
+
   render() {
+    const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
+      artist: this.props.artist,
+      response: this.state.response.artist_id
+    }))
     const return_value = this.props.response
-    let time_id = new Date()
-    console.log('props', this.props);
+
     console.log('return value response', return_value);
     return (
       <div className="App">
@@ -41,8 +53,11 @@ class SearchResults extends Component {
             <div>Born in: {return_value.artist_year} in {return_value.artist_hometown}</div>
             <div><img src={return_value.artist_image}/></div>
             {/* <img src={require('./goldframe.gif')} /> */}
+            <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
+            <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.handleClick(event)}><Link to="/learn/search/:gene">Learn More</Link></button>
+
         </div>
-        <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
+        {childrenWithProps}
         </div>
     );
   }

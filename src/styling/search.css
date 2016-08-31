@@ -8,17 +8,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-.flex-container {
-  display: flex;
-}
-
-.flex-item {
-  background: tomato;
-  width: 40vw;
-  height: 60vh;
-  margin: 50px;
+  align-content: center;
 }
 
 .title {
@@ -27,6 +17,6 @@ html, body {
 }
 
 
-.search-artsy {
+.input-bar {
   width: 40% !important;
 }

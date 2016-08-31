@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import './styling/App.css';
 import {Link} from 'react-router';
-// import { Button } from 'react-materialize';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Navbar, NavItem, Nav } from 'react-bootstrap';
 
 class App extends Component {
   render() {
+
     return (
       <div className="App">
-        <div className="nav-bar"> Title/Name o my Game </div>
-              <button className='buttonnnn'>
-                  <Link to='/artsy' className='search-button waves-effect waves-teal btn-flat'>I want to learn about one painting</Link>
-              </button>
-              <br />
-              <button className='buttonnnn'>
-                  <Link to='/game' className='search-button waves-effect waves-teal btn-flat'>I want to play a learning game</Link>
-              </button>
-              <br />
-              <button className='buttonnnn'>
-                  <Link to='/about' className='search-button waves-effect waves-teal btn-flat'>I want to know about Maggie</Link>
-              </button>
+          <Navbar inverse className="nav-bar">
+            <Navbar.Header>
+              <Navbar.Brand>
+                <Link to="/">React-Bootstrap</Link>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+              <Nav>
+                <LinkContainer to="/learn">
+                  <NavItem eventKey={1} className="buttonnnn">Discover</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/game">
+                  <NavItem eventKey={2} className="buttonnnn">Learn</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/about">
+                  <NavItem eventKey={3} className="buttonnnn">About</NavItem>
+                </LinkContainer>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
         </div>
     );
   }

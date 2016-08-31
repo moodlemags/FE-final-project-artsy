@@ -8,7 +8,7 @@
 }
 
 .nav-bar {
-  background-color: #73EAAA;
+  background-color: #F9F9F9;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -16,23 +16,21 @@
   width: 100%;
   margin: 10px;
   overflow: hidden;
-  font-size: 3em;
-  border: 17px solid #97FFC7;
+  border: 17px solid #DBF5F3;
 }
 
 .buttonnnn {
-  border: none !important;
-  background-color: #EA9087 !important;
-  color: #9E382E !EA4B6E;
-  padding: 0 !important;
-  margin: 0 !important;
   text-decoration: none;
-  align-self: flex-end;
-  width: 25%;
-  border: 7px solid #EA4B6E !important;
+  font-size: 1.5em;
+
 }
 
 .buttonnnn:hover {
-  background-color: #EA4B6E !important;
-  color: #EA4B6E !important;
+  background-color: #98E8E7 !important;
+  color: white !important;
+  font-size: 25% !important;
+}
+
+.buttonnnn:clicked {
+  background-color: #CED7D6 !important;
 }

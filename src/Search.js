@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './styling/search.css';
 import { Link } from 'react-router';
+import { Input } from 'react-materialize';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Navbar, NavItem, Nav } from 'react-bootstrap';
 
 class Search extends Component {
   constructor(props) {
@@ -22,7 +25,7 @@ class Search extends Component {
     event.preventDefault();
     console.log('clicking 2 backend');
     const method = 'post';
-    const url = 'http://localhost:3000/artsy'
+    const url = 'http://localhost:3000/learn'
     const dataObj = { artist: this.state.artist }
 
     axios({
@@ -43,13 +46,38 @@ class Search extends Component {
       artist: this.state.artist,
       response: this.state.response
     }))
+
+    let inputStyle = {
+      width: 400,
+      height: 50,
+      fontSize: 10
+    }
     return (
       <div className="App">
-        <h2 className="nav-bar">Welcome to Maggie's Artsy API Playground</h2>
-          <input type="text" className="search-artsy" onChange={this.handleSearch.bind(this)} placeholder="type in me"/>
-          <button onClick={(event) => this.onClick(event)}><Link to="/artsy/search">Oh button, let me talk to backend</Link></button>
-          <div>{childrenWithProps}</div>
-
+        <Navbar inverse className="nav-bar">
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">React-Bootstrap</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <LinkContainer to="/artsy">
+                <NavItem eventKey={1} className="buttonnnn">Discover</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/game">
+                <NavItem eventKey={2} className="buttonnnn">Learn</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/about">
+                <NavItem eventKey={3} className="buttonnnn">About</NavItem>
+              </LinkContainer>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+                <Input style={inputStyle} placeholder="Input Desired Artist Name" s={6} onChange={this.handleSearch.bind(this)} label="Search:" />
+                <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClick(event)}><Link to="/learn/search">Oh button, let me talk to backend</Link></button>
+            <div>{childrenWithProps}</div>
       </div>
     );
   }

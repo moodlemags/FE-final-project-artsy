@@ -1,24 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Search from './Search';
 import Game from './Game';
-import GameOver from './GameOver.js';
 import About from './About';
+import Search from './Search';
 import SearchResults from './SearchResults';
+import LearnMore from './LearnMore';
 import { Router, Route, browserHistory } from 'react-router';
 import './styling/index.css';
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App} />
-    <Route path="/artsy" component={Search}>
-      <Route path="/artsy/search" component={SearchResults} />
+    <Route path ="/learn" component={Search}>
+      <Route path="/learn/search" component={SearchResults}>
+        <Route path="/learn/search/:gene" component={LearnMore} />
+      </Route>
     </Route>
-    <Route path="/game" component={Game}>
-      <Route path="/gameover" component={GameOver} />
-    </Route>
-    <Route path="/about" component={About} />
+    <Route path ="/game" component={Game}></Route>
+    <Route path="/about" component={About}></Route>
   </Router>
   ,document.getElementById('root')
 );
