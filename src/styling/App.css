@@ -19,6 +19,10 @@
   border: 17px solid #DBF5F3;
 }
 
+.nav-bar a {
+  font-size: 15px !important;
+}
+
 .buttonnnn {
   text-decoration: none;
   font-size: 1.5em;

@@ -36,37 +36,48 @@ class Game extends Component {
     }).then((res) => {
       this.setState({
         response: res.data,
-        painting: res.data.painting
-      });
+        painting: res.data.painting,
+        main_gene: res.data.gene_id,
+        genes: res.data.genes_hash
+    });
       console.log('response data', res.data);
       console.log('state', this.state)
-    })
+      console.log('in mounting', res.data.genes_hash);
+      })
+  })
+}
+
+  onClick(event) {
+    event.preventDefault(event);
+    const buttonValue = event.target.value
+    console.log('clicking 2 backend w/', buttonValue);
+    const method = 'post';
+    const url = 'http://localhost:3000/game/:gene'
+    const dataObj = { id: buttonValue }
+
+    if (buttonValue == this.state.main_gene) {
+      console.log("true");
+    } else {
+      console.log("nope");
+    }
+
+    axios({
+      method: method,
+      url: url,
+      data: dataObj
+    }).then((res) => {
+      this.setState({
+          gene_data: res.data
+      });
+      console.log('response data',res.data);
+      console.log('state ',this.state);
     })
   }
 
-  // onClick(event) {
-  //   event.preventDefault(event);
-  //   const buttonValue = event.target.value
-  //   console.log('clicking 2 backend w/', buttonValue);
-  //   const method = 'post';
-  //   const url = 'http://localhost:3000/game/:gene'
-  //   const dataObj = { id: buttonValue }
-  //
-  //   axios({
-  //     method: method,
-  //     url: url,
-  //     data: dataObj
-  //   }).then((res) => {
-  //     this.setState({
-  //         gene_data: res.data
-  //     });
-  //     console.log('response data',res.data);
-  //     console.log('state ',this.state);
-  //   })
-  // }
-
   render() {
     const returned_response = this.state.response
+    const genes_hash = this.state.genes
+
 
     const popoverClick = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
               <strong>Hey </strong> Mag</Popover>);
@@ -77,17 +88,26 @@ class Game extends Component {
         <img src= {this.state.painting} />
         <br />
         <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.gene_one}</Button>
+          <Button value={returned_response.first_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.first_gene_name}</Button>
         </OverlayTrigger>
         <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>two</Button>
+          <Button value={returned_response.second_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.second_gene_name}</Button>
+        </OverlayTrigger>
+        <br />
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.third_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.third_gene_name}</Button>
         </OverlayTrigger>
         <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>three</Button>
+          <Button value={returned_response.fourth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fourth_gene_name}</Button>
+        </OverlayTrigger>
+        <br />
+        <OverlayTrigger placement="right" overlay={popoverClick}>
+          <Button value={returned_response.fifth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fifth_gene_name}</Button>
         </OverlayTrigger>
         <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button value={returned_response.gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>four</Button>
+          <Button value={returned_response.sixth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.sixth_gene_name}</Button>
         </OverlayTrigger>
+
         </div>
       </div>
     );
