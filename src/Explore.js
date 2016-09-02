@@ -19,11 +19,8 @@ class Explore extends Component {
     util.getAll()
     .then((res) => {
       const all_faves = { res }
-      const output = Object.keys(all_faves).map(function(key) {
-      return { key : all_faves[key] }
-    })
-      console.log('arr', output[0].key);
-      this.setState({array_res: output[0].key})
+      console.log('arr', res);
+      this.setState({array_res: res })
       console.log('getAll', res);
     })
   }

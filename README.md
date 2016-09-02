@@ -15,4 +15,4 @@ There are two different main features to this app - the "discover" component and
 
 ### Problems/What's Left:
 
-I had the worst trouble hosting. Additionally, I need to find a way to have my token pass and be able to make the api call without re calling it in each method. Lastly, I have to render my CRUD, which is all coded but not rendered.
+I had the worst trouble hosting, which is why this isn't hosted. Additionally, I need to find a way to have my token pass and be able to make the api call without re calling it in each method. Lastly, I have to render my CRUD, which is all coded but not rendered.

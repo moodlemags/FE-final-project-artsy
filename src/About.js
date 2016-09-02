@@ -36,7 +36,8 @@ class About extends Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <img src={require('./assets/maggie.png')} alt="presentation" />
+        <img src={require('./assets/baby.png')} alt="presentation" />
+        <h2>Maggie Merrell</h2>
 
       </div>
     );
