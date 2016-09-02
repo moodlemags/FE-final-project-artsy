@@ -16,7 +16,7 @@ class LearnMore extends Component {
     console.log('learning more !!', this.props);
     console.log(this.state);
     const method = 'post';
-    const url = 'https://mighty-ravine-78456.herokuapp.com/learn/search/:gene'
+    const url = 'https://warm-wave-94604.herokuapp.com/learn/search/:gene'
     const dataObj = { artist_id: this.props.params.gene }
     console.log(dataObj);
 

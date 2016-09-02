@@ -26,7 +26,7 @@ class Search extends Component {
     event.preventDefault();
     console.log('clicking 2 backend');
     const method = 'post';
-    const url = 'https://mighty-ravine-78456.herokuapp.com/learn'
+    const url = 'https://warm-wave-94604.herokuapp.com/learn'
     const dataObj = { artist: this.state.artist }
 
     axios({

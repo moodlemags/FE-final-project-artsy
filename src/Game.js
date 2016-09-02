@@ -32,7 +32,7 @@ class Game extends Component {
       })
     }).then(res => {
     const method ='post';
-    const url = 'https://intense-eyrie-87891.herokuapp.com/game'
+    const url = 'https://warm-wave-94604.herokuapp.com/game'
     const dataObj = { saved_works: this.state.saved_works}
     console.log(dataObj);
     axios({
@@ -58,7 +58,7 @@ class Game extends Component {
     const buttonValue = event.target.value
     console.log('clicking 2 backend w/', buttonValue);
     const method = 'post';
-    const url = 'https://mighty-ravine-78456.herokuapp.com/game/:gene'
+    const url = 'https://warm-wave-94604.herokuapp.com/game/:gene'
     const dataObj = { id: buttonValue }
     axios({
       method: method,
