@@ -22,7 +22,7 @@
     "react-time": "^4.2.0"
   },
   "scripts": {
-    "start": "node backend.js",
+    "start": "node index.js",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
