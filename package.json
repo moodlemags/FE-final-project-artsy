@@ -2,9 +2,9 @@
   "name": "FE-react-artsy",
   "version": "0.0.1",
   "engines": {
-      "node": "6.3.1",
-      "npm": "3.10.3"
-    },
+  "node": "6.3.1",
+  "npm": "3.10.3"
+},
   "private": true,
   "devDependencies": {
     "react-scripts": "0.2.3"
@@ -21,9 +21,9 @@
     "react-router-bootstrap": "^0.23.1",
     "react-time": "^4.2.0"
   },
-  "main": "Server.js",
   "scripts": {
     "start": "node server.js",
+    "starty": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
