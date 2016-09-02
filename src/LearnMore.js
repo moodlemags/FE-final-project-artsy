@@ -34,13 +34,13 @@ class LearnMore extends Component {
   }
   render() {
     console.log(this.state.response.one_name);
-    const popoverClickOne = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+    const popoverClickOne = (<Popover id="popover-trigger-click" id="popover-positioned-right" title={this.state.response.one_name}>
               <strong>{this.state.response.one_name}</strong> {this.state.response.one_desc}</Popover>);
-    const popoverClickTwo = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+    const popoverClickTwo = (<Popover id="popover-trigger-click" id="popover-positioned-right" title={this.state.response.two_name}>
               <strong>{this.state.response.two_name}</strong> {this.state.response.two_desc}</Popover>);
-    const popoverClickThree = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+    const popoverClickThree = (<Popover id="popover-trigger-click" id="popover-positioned-right" title={this.state.response.three_name}>
               <strong>{this.state.response.three_name}</strong> {this.state.response.three_desc}</Popover>);
-    const popoverClickFour = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
+    const popoverClickFour = (<Popover id="popover-trigger-click" id="popover-positioned-right" title={this.state.response.four_name}>
               <strong>{this.state.response.four_name}</strong> {this.state.response.four_desc}</Popover>);
     return (
       <div className="App">

@@ -17,7 +17,8 @@ class Search extends Component {
 
   handleSearch(event) {
     console.log('artist value', event.target.value);
-    this.setState({ artist: event.target.value });
+    // console.log('no space', event.target.value.replace(/\s/g, "-"));
+    this.setState({ artist: event.target.value.replace(/\s/g, "-") });
     console.log('state', this.state);
   }
 
@@ -80,7 +81,7 @@ class Search extends Component {
         </Navbar>
 
                 <Input style={inputStyle} placeholder="Input Desired Artist Name" s={6} onChange={this.handleSearch.bind(this)} label="Search:" />
-                <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClick(event)}><Link to="/learn/search">Oh button, let me talk to backend</Link></button>
+                <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClick(event)}><Link to="/learn/search">Search</Link></button>
             <div>{childrenWithProps}</div>
       </div>
     );

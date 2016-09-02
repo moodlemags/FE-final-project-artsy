@@ -71,8 +71,8 @@ class SearchResults extends Component {
             <h2 className="gold-text">{return_value.artist_page}</h2>
             <h4>Born in: {return_value.artist_year} in {return_value.artist_hometown}</h4>
             <div><img className="kyla" alt="artist_work" src={return_value.artist_image}/></div>
-            <button className="kyla" className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
-            <button className="kyla" className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.handleClick(event)}><Link to="/learn/search/:gene">Learn More</Link></button>
+            <button className='favs-button waves-effect waves-teal btn-flat kyla' onClick={(event) => this.onClickFavorite(event)}>Add to study</button>
+            <button className="kyla" className='favs-button waves-effect waves-teal btn-flat kyla' onClick={(event) => this.handleClick(event)}><Link to="/learn/search/:gene">Learn More</Link></button>
         </div>
         {childrenWithProps}
         </div>

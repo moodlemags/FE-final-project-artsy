@@ -10,22 +10,31 @@ class Explore extends Component {
   constructor(props) {
     super(props);
     this.state={
-      response: {}
+      response: [],
+      array_res: []
     }
   }
 
-  componentDidMount() {
+  getFavorites() {
     util.getAll()
-    .then(res => {
-      this.setState({ response: res })
-      console.log('result', res);
+    .then((res) => {
+      const all_faves = { res }
+      const output = Object.keys(all_faves).map(function(key) {
+      return { key : all_faves[key] }
+    })
+      console.log('arr', output[0].key);
+      this.setState({array_res: output[0].key})
+      console.log('getAll', res);
     })
   }
 
+  componentDidMount() {
+    this.getFavorites();
+  }
+
   render() {
-    console.log(this.state);
-      const favorites = this.state.response
-        console.log('fave',favorites);
+    const art_saved = this.state
+    console.log('new state', art_saved);
     return (
       <div className="App">
           <Navbar inverse className="nav-bar">
@@ -54,17 +63,17 @@ class Explore extends Component {
           </Navbar>
 
           <div className="main-componenet">
-            {
-                  favorites.map((favorite) => {
-                    return (
+            {/* {
+                  art_saved.map((fave) => {
+                    return ( */}
                       <div>
-                        <p>{favorites.artist_name}</p>
+                        <p>{art_saved[0]}</p>
                       </div>
-                    )
+                    {/* )
                   }
 
                 )
-              }
+              } */}
           </div>
         </div>
     );
