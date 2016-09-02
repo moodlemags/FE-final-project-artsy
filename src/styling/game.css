@@ -14,3 +14,7 @@ body {
 .gene-btn {
   margin-top: 15px;
 }
+
+.specialbutton.active.btn.btn-default {
+  background-color: green !important;
+}

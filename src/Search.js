@@ -63,18 +63,22 @@ class Search extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <LinkContainer to="/artsy">
+              <LinkContainer to="/learn">
                 <NavItem eventKey={1} className="buttonnnn">Discover</NavItem>
               </LinkContainer>
               <LinkContainer to="/game">
                 <NavItem eventKey={2} className="buttonnnn">Learn</NavItem>
               </LinkContainer>
+              <LinkContainer to="/explore">
+                <NavItem eventKey={3} className="buttonnnn">Explore</NavItem>
+              </LinkContainer>
               <LinkContainer to="/about">
-                <NavItem eventKey={3} className="buttonnnn">About</NavItem>
+                <NavItem eventKey={4} className="buttonnnn">About</NavItem>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+
                 <Input style={inputStyle} placeholder="Input Desired Artist Name" s={6} onChange={this.handleSearch.bind(this)} label="Search:" />
                 <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClick(event)}><Link to="/learn/search">Oh button, let me talk to backend</Link></button>
             <div>{childrenWithProps}</div>

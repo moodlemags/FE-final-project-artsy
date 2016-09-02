@@ -18,17 +18,21 @@ html, body {
 
 .input-bar {
   width: 40% !important;
+  transition: all .2s ease-in-out !important;
 }
 
-.rendered-painting {
-  border: yellow 10px solid;
-   /*border: 2px solid rgba(0,150,255,0.91);
-   color: rgba(255,255,255,1);
-   text-align: center;
-   text-overflow: ellipsis;
-   box-shadow: 0 0 12px 4px rgba(247,227,14,0.5) ;*/
+.input-bar:hover {
+  transform: scale(2.1) !important;
 }
 
+.kyla {
+transition: all .2s ease-in-out;
+
+}
+.kyla:hover {
+  transform: scale(2.1);
+
+}
 
 .gold-text {
     justify-content: center;
@@ -39,4 +43,18 @@ html, body {
     url('http://previews.123rf.com/images/naiaekky/naiaekky1411/naiaekky141100048/33235710-Shiny-blue-leaf-blue-foil-texture-background-Stock-Photo.jpg') repeat;
     background: -o-linear-gradient(transparent, transparent);
     -webkit-background-clip: text;
+    transition: all .2s ease-in-out;
+
 }
+
+.gold-text:hover {
+  transform: scale(2.1);
+}
+
+/*.favs-button.waves-effect.waves-teal.btn-flat {
+  transition: all .2s ease-in-out !important;
+}
+
+.favs-button.waves-effect.waves-teal.btn-flat:hover {
+  transform: scale(2.1);
+}*/

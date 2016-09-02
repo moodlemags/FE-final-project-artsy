@@ -3,10 +3,29 @@ import './styling/App.css';
 import {Link} from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, NavItem, Nav } from 'react-bootstrap';
+import util from './utils/firebase.js';
 
-class App extends Component {
+
+class Explore extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      response: {}
+    }
+  }
+
+  componentDidMount() {
+    util.getAll()
+    .then(res => {
+      this.setState({ response: res })
+      console.log('result', res);
+    })
+  }
+
   render() {
-
+    console.log(this.state);
+      const favorites = this.state.response
+        console.log('fave',favorites);
     return (
       <div className="App">
           <Navbar inverse className="nav-bar">
@@ -35,11 +54,21 @@ class App extends Component {
           </Navbar>
 
           <div className="main-componenet">
-            <img src={require('./assets/meme.jpg')} alt="presentation" className="image" />
+            {/* {
+                  favorites.map((favorite) => {
+                    return (
+                      <div>
+                        <p>{favorites.artist_name}</p>
+                      </div>
+                    )
+                  }
+
+                )
+              } */}
           </div>
         </div>
     );
   }
 }
 
-export default App;
+export default Explore;
