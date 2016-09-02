@@ -7,8 +7,13 @@ body {
 }
 
 .rendered-items {
+  display: flex;
+  flex-flow: column;
   position: relative;
   top: 50px
+}
+.rendered-items.Button {
+  border-radius: 25%;
 }
 
 .gene-btn {
@@ -17,4 +22,10 @@ body {
 
 .specialbutton.active.btn.btn-default {
   background-color: green !important;
+}
+
+.navbar-brand:hover {
+  font-size: 24px !important;
+  color: #DBF5F3 !important;
+  background-color: white !important;
 }

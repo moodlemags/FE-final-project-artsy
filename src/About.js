@@ -14,7 +14,7 @@ class About extends Component {
         <Navbar inverse className="nav-bar">
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">React-Bootstrap</Link>
+              <Link to="/">Cool App w/ No Name Yet</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

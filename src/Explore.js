@@ -31,7 +31,7 @@ class Explore extends Component {
           <Navbar inverse className="nav-bar">
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to="/">React-Bootstrap</Link>
+                <Link to="/">Cool App w/ No Name Yet</Link>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -54,7 +54,7 @@ class Explore extends Component {
           </Navbar>
 
           <div className="main-componenet">
-            {/* {
+            {
                   favorites.map((favorite) => {
                     return (
                       <div>
@@ -64,7 +64,7 @@ class Explore extends Component {
                   }
 
                 )
-              } */}
+              }
           </div>
         </div>
     );

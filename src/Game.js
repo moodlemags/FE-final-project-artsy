@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import util from './utils/firebase.js';
 import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -17,7 +17,8 @@ class Game extends Component {
       response: [],
       id: "",
       painting: "",
-      saved_works: ""
+      saved_works: "",
+      accurate: { color: "black", backgroundColor: "white"}
     }
   }
 
@@ -65,10 +66,20 @@ class Game extends Component {
       data: dataObj
     }).then((res) => {
       if (buttonValue === this.state.main_gene) {
-        this.setState({ accurate: true })
+        let truestyle = {
+          color: "white",
+          backgroundColor: "green"
+        }
+        this.setState({ accurate: truestyle })
         console.log("true", this.state.accurate);
       } else {
         console.log("nope");
+        let truestyle = {
+          color: "white",
+          backgroundColor: "red"
+        }
+        this.setState({ accurate: truestyle })
+        console.log("false", this.state.accurate)
       }
       this.setState({
           gene_data: res.data
@@ -82,17 +93,14 @@ class Game extends Component {
   render() {
     const returned_response = this.state.response
 
-      let classes = btnClass;
-      if (this.state.accurate) classes += 'gene-true';
+      console.log(this.state.accurate);
 
-    const popoverClick = (<Popover id="popover-trigger-click" id="popover-positioned-right" title="Popover bottom">
-              <strong>Hey </strong> Mag</Popover>);
     return (
       <div className="App">
         <Navbar inverse className="nav-bar">
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">React-Bootstrap</Link>
+              <Link to="/">Cool App w/ No Name Yet</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -118,27 +126,15 @@ class Game extends Component {
       <div className="rendered-items">
         <img src= {this.state.painting} alt="render"/>
         <br />
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.first_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.first_gene_name}</Button>
-        </OverlayTrigger>
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.second_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.second_gene_name}</Button>
-        </OverlayTrigger>
+          <Button style={this.state.accurate} value={returned_response.first_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.first_gene_name}</Button>
+          <Button style={this.state.accurate} value={returned_response.second_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.second_gene_name}</Button>
         <br />
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.third_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.third_gene_name}</Button>
-        </OverlayTrigger>
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.fourth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fourth_gene_name}</Button>
-        </OverlayTrigger>
+          <Button style={this.state.accurate} value={returned_response.third_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.third_gene_name}</Button>
+          <Button style={this.state.accurate} value={returned_response.fourth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fourth_gene_name}</Button>
         <br />
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.fifth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fifth_gene_name}</Button>
-        </OverlayTrigger>
-        <OverlayTrigger placement="right" overlay={popoverClick}>
-          <Button className={classes} value={returned_response.sixth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.sixth_gene_name}</Button>
-        </OverlayTrigger>
-
+          <Button style={this.state.accurate} value={returned_response.fifth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.fifth_gene_name}</Button>
+          <Button style={this.state.accurate} value={returned_response.sixth_gene_id} bsStyle="default" onClick={(event) => this.onClick(event)}>{returned_response.sixth_gene_name}</Button>
+          {/* <h2>{this.state.accurate}</h2> */}
         </div>
       </div>
     );
