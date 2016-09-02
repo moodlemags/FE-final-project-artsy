@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Game from './Game';
-import About from './About';
-import Search from './Search';
-import Explore from './Explore';
-import SearchResults from './SearchResults';
-import LearnMore from './LearnMore';
+import App from './src/App';
+import Game from './src/Game';
+import About from './src/About';
+import Search from './src/Search';
+import Explore from './src/Explore';
+import SearchResults from './src/SearchResults';
+import LearnMore from './src/LearnMore';
 import { Router, Route, browserHistory } from 'react-router';
 import './styling/index.css';
 
