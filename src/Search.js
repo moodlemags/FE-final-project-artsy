@@ -26,7 +26,7 @@ class Search extends Component {
     event.preventDefault();
     console.log('clicking 2 backend');
     const method = 'post';
-    const url = 'http://localhost:3000/learn'
+    const url = 'https://mighty-ravine-78456.herokuapp.com/learn'
     const dataObj = { artist: this.state.artist }
 
     axios({
