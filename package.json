@@ -20,6 +20,7 @@
   "scripts": {
     "start": "node src/server.js",
     "postinstall": "npm run dist",
+    "dist": "webpack -p",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
